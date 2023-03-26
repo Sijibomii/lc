@@ -17,7 +17,7 @@ def three_sum(nums):
             z.append(num)
 
     #2. Create a separate set for negatives and positives for O(1) look-up times
-    N, P = set(n), set(p)
+    N, P = set(n), set(p) 
 
     #3. If there is at least 1 zero in the list, add all cases where -num exists in N and num exists in P
 	#   i.e. (-3, 0, 3) = 0
@@ -55,6 +55,7 @@ def three_sum(nums):
 # NOTE ANSWER IS PARTIALLY CORRECT BUT DUPLICATE LOGIC BELOW IS WRONG
 def three_sum(nums):
     nums = sorted(nums)
+    # TURN THIS INTO A SET
     answer = []
     for idx, num in enumerate(nums):
         low = idx + 1
@@ -80,6 +81,8 @@ def three_sum(nums):
                     high = high - 1
         # same here, eliminate duplicates on num
         # logic to prevent duplicate is wrong
+       
         # while (idx + 1 < len(nums)) and (nums[idx] == nums[idx+1]):
-        #     continue
+            
     return answer
+ 
