@@ -4,6 +4,7 @@
 """
 Input: nums = [1,3,5,6,7], target = 2
 Output: 1
+https://leetcode.com/problems/search-insert-position/solutions/249092/come-on-forget-the-binary-search-pattern-template-try-understand-it/
 """
 def search_insert(nums, target):
     left, right = 0, len(nums) -1
