@@ -54,16 +54,23 @@ def spiral_matrix(square_matrix):
             # square-matrix has odd dimension, and we are at the center of the matrix square_matrix
             spiral_ordering.append(square_matrix[offset][offset])
             return
+        # unpack each layer
         #https://www.programiz.com/python-programming/methods/list/extend
+        # first move in the left dirn but leave out the edge bc next drn will start at the edge
         spiral_ordering.extend(square_matrix[offset][offset:-1-offset])
+        # next move in the down direction once again it leaves out the edge
         spiral_ordering.extend(list(
             #https://www.w3schools.com/python/ref_func_zip.asp
+            #Unpacked argument lists: Given a sequence of arguments args, f(*args) will call f such that each element in args is a separate positional argument of f
             zip(*square_matrix))[-1-offset][offset:-1-offset])
+        # next move in the right dirn once again leave out the edge
         spiral_ordering.extend(square_matrix[-1 - offset] [-1-offset:offset:-1])
+        # next move in the up dirn once again leave out the edge
         spiral_ordering.extend(
             list(zip(*square_matrix))[offset][-1-offset:offset:-1]
             )
     spiral_ordering = []
+    # for offset in range((len(square_matrix) + 1) // 2)-> this gives the number of layers the matrix has 
     for offset in range((len(square_matrix) + 1) // 2):
         matrix_layer_in_clockwise(offset)
     return spiral_ordering
