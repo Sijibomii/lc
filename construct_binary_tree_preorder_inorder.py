@@ -14,6 +14,7 @@ def buildTree(preorder, inorder):
         root_inorder_idx = node_to_inorder_idx[preorder[preorder_start]]
         # everything to the left of the inorder_root is on the left subtree
         left_subtree_size = root_inorder_idx - inorder_start
+        
         return TreeNode(
             preorder[preorder_start],
             #Recursively builds the left subtree
@@ -26,4 +27,5 @@ def buildTree(preorder, inorder):
             preorder_start + 1+ left_subtree_size, preorder_end, root_inorder_idx + 1,
         inorder_end
             ))
+        
     return binary_tree_from_preorder_inorder_helper(0, len(preorder), 0, len(inorder)) 
